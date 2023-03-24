@@ -1,0 +1,31 @@
+SGD is an iterative technique thaat 
+
+
+-------------------------- Hyper-Parameters in SGD ----------------------------------------------
+1)penalty : {'l2', 'l1', 'elasticnet'}, default='l2'---->Reguralization
+2)alpha :loat, default = 0.0001
+3)verbose − integer, default = 0
+To make it True Make verbose = 1
+4)max_iter − int, optional, default = 1000
+max_iter itr 1-->keeping m=0,c=1-->Predict Model-->Score
+         update bias
+         itr 2--->Keeping m=2,c=1--->Predict Model-->Score
+5)warm_start − bool, optional, default = false
+ parameter set to True, we can reuse the solution of the previous call to fit as initialization.
+6)n_jobs − int or none, optional, Default = None
+It represents the number of CPUs to be used
+7)learning_rate − string, optional, default = ‘optimal’
+a)If learning rate is ‘constant’, eta = eta0;
+b)If learning rate is ‘optimal’, eta = 1.0/(alpha*(t+t0)), where t0 is chosen by Leon Bottou;
+c)If learning rate = ‘invscalling’, eta = eta0/pow(t, power_t).
+d)If learning rate = ‘adaptive’, eta = eta0.
+8)eta0 − double, default = 0.0
+learning rate:-Works only in the case of ‘constant’, ‘invscalling’, or ‘adaptive’.
+9)power_t − idouble, default =0.5
+just in case of 'invscalling'
+10)early_stopping:-default=False
+This parameter represents the use of early stopping to terminate training when validation score is not improving
+11)validation_fraction − float, default = 0.1
+It is only used when early_stopping is true. It represents the proportion of training data to set asides as validation set for early termination of training data..
+12)n_iter_no_change − int, default=5
+It represents the number of iteration with no improvement should algorithm run before early stopping.

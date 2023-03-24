@@ -1,0 +1,69 @@
+Steps for Linear Regression:
+
+1. Create the dataframe properly-->pd.read_csv(),pd.read_excel()
+2. Preprocessing the data:
+	a. Feature selection-->domain knowledge,drop()
+	b. Handling missing values-->isnull().sum(),fillna(),dropna()
+3. Assumption 1: There should be no outliers in the data-->boxplot()
+4. Assumption 2: Assumption of Linearity: Every ind var should have a linear relationship with the dep var-->pairplot()
+3. Converting categorical data to numerical-->map(),pd.get_dummies(),OneHotEncoder(),LabelEncoder()
+5. Create X and Y-->X=ind var, Y=dep var
+6. Assumption 3: Assumption of Normality: The dependent variable should follow an approximately normal distribution -->distplot(), log()
+7. Checking and handling the skewness in the X vars-->skew(), hist(),log1p()
+8. Assumption 4: Assumption of no multicollinearity: There should be no multicollinearity between the independent variables-->corr(), heatmap(),vif() , drop()
+9. Splitting the data into train and test(validation)-->train_test_split()
+10. Building the model:
+	a. Create the model-->obj=AlgoName()
+	b. Train the model-->obj.fit(X_train, Y_train)
+	c. Predict using the model-->Y_pred=obj.predict(X_test)
+11. Evaluating the model:
+	R-squared, Adj R-squared, RMSE, AIC/BIC
+12. Assumption 5: There should be no auto-correlation in the data-->Durbin Watson test-->Only works on OLS Model
+13. Assumption 6: Errors should be random-->Fitted v/s Residual plot
+14. Assumption 7: Errors should follow an approx normal distribution-->Normal QQ plot
+15. Assumption 8: Errors should follow a constant variance(Homoskedasticity)-->Scale Location plot
+16. Tuning the model:
+	a. Feature selection-->p-values, domain knowledge
+	b. Regularization techniques-->Ridge()(L2), Lasso(),Elastic net
+	c. Stochastic Gradient Descent-->SGDRegressor()
+hyper-parameter
+Ridge(L2):-alpha:-0 to inf
+cost function:-alpha+(slope)^2
+Lasso(L1):-Used for feature selection
+cost function:-alpha+(slope)^2
+Extras:-
+17. Creating Pipelines:-https://colab.research.google.com/drive/1ueJaFRNBznZ_qAgDG5F2_y9KsOOr565S
+18. Cross-validation:- 
+18. Pollynomial_features:-when there is no Linear relation between the x and y variable.
+19. Bayesian regression:-when the sample set is small and you have domain knowledge.
+20. Poisson regression:-
+21. Lazy Regression:-We get the base model and the score of all regression model
+22. Stochastic gradient descent--->use Standard scalar before you create a model
+-------------------------- Hyper-Parameters in SGD ----------------------------------------------
+1)penalty : {'l2', 'l1', 'elasticnet'}, default='l2'---->Reguralization
+2)alpha :loat, default = 0.0001
+3)verbose − integer, default = 0
+To make it True Make verbose = 1
+4)max_iter − int, optional, default = 1000
+max_iter itr 1-->keeping m=0,c=1-->Predict Model-->Score
+         update bias
+         itr 2--->Keeping m=2,c=1--->Predict Model-->Score
+5)warm_start − bool, optional, default = false
+ parameter set to True, we can reuse the solution of the previous call to fit as initialization.
+6)n_jobs − int or none, optional, Default = None
+It represents the number of CPUs to be used
+7)learning_rate − string, optional, default = ‘optimal’
+a)If learning rate is ‘constant’, eta = eta0;
+b)If learning rate is ‘optimal’, eta = 1.0/(alpha*(t+t0)), where t0 is chosen by Leon Bottou;
+c)If learning rate = ‘invscalling’, eta = eta0/pow(t, power_t).
+d)If learning rate = ‘adaptive’, eta = eta0.
+8)eta0 − double, default = 0.0
+learning rate:-Works only in the case of ‘constant’, ‘invscalling’, or ‘adaptive’.
+9)power_t − idouble, default =0.5
+just in case of 'invscalling'
+10)early_stopping:-default=False
+This parameter represents the use of early stopping to terminate training when validation score is not improving
+11)validation_fraction − float, default = 0.1
+It is only used when early_stopping is true. It represents the proportion of training data to set asides as validation set for early termination of training data..
+12)n_iter_no_change − int, default=5
+It represents the number of iteration with no improvement should algorithm run before early stopping.
